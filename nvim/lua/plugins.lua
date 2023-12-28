@@ -38,7 +38,6 @@ require('packer').startup(function(use)
                 },
 
                 config = function()
-
                         require('lsp-zero').preset().nvim_workspace()
                         require('lsp-zero').preset().ensure_installed { 'lua_ls', 'clangd', 'pyright' }
                         require('lspconfig').lua_ls.setup(require('lsp-zero').nvim_lua_ls())
@@ -105,8 +104,6 @@ require('packer').startup(function(use)
                         }
                 }
         end }
-
-        use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
 
         use { 'Darazaki/indent-o-matic', config = function()
                 require('indent-o-matic').setup {}
