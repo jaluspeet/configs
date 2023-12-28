@@ -1,0 +1,5 @@
+require("plugins")
+require("settings")
+require("colo")
+require("keybindings")
+require("autocmd")
