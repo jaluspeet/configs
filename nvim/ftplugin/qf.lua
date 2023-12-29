@@ -1,1 +1,1 @@
-vim.cmd([[setlocal norelativenumber]])
+vim.o.relativenumber = false
