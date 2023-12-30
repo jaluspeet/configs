@@ -8,6 +8,6 @@ vim.api.nvim_set_hl(0, 'GitSignsChange', { link = 'LineNr' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'Normal' })
 
 -- syntax
-vim.api.nvim_set_hl(0, 'String', { fg = 'darkgrey' })
+vim.api.nvim_set_hl(0, 'String', { fg = 'pink' })
 vim.api.nvim_set_hl(0, 'Comment', { fg = 'grey', italic = true })
 vim.api.nvim_set_hl(0, 'Function', { fg = 'lightblue', bold = true })
