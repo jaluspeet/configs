@@ -1,5 +1,9 @@
 -- makeprg
-vim.cmd([[setlocal makeprg=cargo\ run]])
+if vim.fn.filereadable(vim.fn.getcwd() .. "/Makefile") == 1 then
+	vim.cmd([[setlocal makeprg=make]])
+else
+	vim.cmd([[setlocal makeprg=cargo\ run]])
+end
 
 -- errorformat
 vim.cmd([[setlocal errorformat=

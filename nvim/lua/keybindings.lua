@@ -7,11 +7,9 @@ vim.keymap.set('n', '<leader>.', ':bNext<CR>', { desc = "Next buffer" })
 vim.keymap.set('n', '<leader><leader>', ':Telescope find_files<CR>', { desc = "Files" })
 vim.keymap.set('n', '<leader>s', ':Telescope live_grep<CR>', { desc = "Search" })
 vim.keymap.set('n', '<leader>p', ':Telescope projects<CR>', { desc = "Projects" })
-
 vim.keymap.set('n', '<leader>e', ':Lex<CR><CR>', { desc = "Explorer" })
-vim.keymap.set('n', '<leader>g', ':term tig<CR>', { desc = "Git" })
-vim.keymap.set('n', '<leader>t', ':term<CR>', { desc = "Terminal" })
-vim.keymap.set('n', '<F5>', ':silent make | copen<CR>', { desc = "Make" })
+
+vim.keymap.set('n', '<F5>', ':silent make | copen<CR>', { desc = "Run" })
 
 vim.keymap.set('n', '<leader>d', ':Telescope diagnostics<CR>', { desc = "Diagnostics" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Next Diagnostic" })

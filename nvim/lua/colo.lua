@@ -5,7 +5,7 @@ vim.cmd([[colo lunaperche]])
 vim.api.nvim_set_hl(0, 'StatusLine', { link = 'LineNr' })
 vim.api.nvim_set_hl(0, 'VertSplit', { link = 'LineNr' })
 vim.api.nvim_set_hl(0, 'GitSignsChange', { link = 'LineNr' })
-vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'LineNr' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'Normal' })
 
 -- syntax
 vim.api.nvim_set_hl(0, 'String', { fg = 'darkgrey' })
