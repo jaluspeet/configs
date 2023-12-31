@@ -15,6 +15,7 @@
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'eglot-ensure)
 (add-hook 'prog-mode-hook #'flymake-mode)
+(add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)
 
 ;; KEYBINDINGS
 (keymap-global-set "C-c t" 'term)
@@ -22,8 +23,8 @@
 
 ;; SETTINGS
 (load-theme 'modus-vivendi t)                                   ;; Load theme
-(set-face-attribute 'default nil :font "Iosevka 20")            ;; Default font face
-(set-face-attribute 'variable-pitch nil :font "Arial 18")       ;; Variable pitch font
+(set-face-attribute 'default nil :font "Iosevka 16")            ;; Default font face
+(set-face-attribute 'variable-pitch nil :font "Arial 14")       ;; Variable pitch font
 (tool-bar-mode -1)                                              ;; Disable the tool bar
 (scroll-bar-mode -1)                                            ;; Disable the scroll bars
 (setq make-backup-files nil)                                    ;; No backups
@@ -31,7 +32,6 @@
 (setq inhibit-startup-screen t)                                 ;; Disable splash screen
 (electric-pair-mode t)                                          ;; Automatically pair parentheses
 (setq confirm-kill-emacs #'yes-or-no-p)                         ;; Confirm exit
-(defalias 'yes-or-no #'y-or-n-p)                                ;; Confirm with y/n
 (setq window-resize-pixelwise t)                                ;; Resize window by pixel
 (setq frame-resize-pixelwise t)                                 ;; Resize frame by pixel
 (set-fringe-mode 0)                                             ;; Disable padding
@@ -55,20 +55,25 @@
 (use-package markdown-mode)                                    ;; Markdown
 
 ;;; PACKAGES
-(use-package which-key                                         ;; which-key
+;; which-key
+(use-package which-key
    :init (which-key-mode))
 
-(use-package direnv                                            ;; direnv
+;; direnv
+(use-package direnv
  :config
  (direnv-mode))
 
-(use-package mood-line                                         ;; mood-line
+;; mood-line
+(use-package mood-line
   :init (mood-line-mode 1))
 
-(use-package vertico                                           ;; vertico
+;; vertico
+(use-package vertico
   :init (vertico-mode 1))
 
-(use-package evil                                              ;; evil
+;; evil
+(use-package evil
   :demand t
   :bind (("<escape>" . keyboard-escape-quit))
   :init
@@ -76,25 +81,35 @@
   :config
   (evil-mode 1))
 
-(use-package evil-collection                                   ;; evil-collection
+;; evil-collection
+(use-package evil-collection
   :after evil
   :ensure t
   :config
   (evil-collection-init))
 
-(use-package corfu                                             ;; corfu
+;; corfu
+(use-package corfu
   :demand t
   :custom
   (corfu-auto t)
+  :config
+  (set-face-attribute 'modus-themes-fixed-pitch nil :font "Iosevka 16")
+  (set-face-attribute 'eldoc-box-body nil :font "Arial 14")
   :init
   (global-corfu-mode))
 
-(use-package yasnippet                                         ;; yasnippet
+;; eldoc-box
+(use-package eldoc-box)
+
+;; yasnippet
+(use-package yasnippet
   :diminish yas-minor-mode
   :hook (prog-mode . yas-minor-mode)
   :config
   (yas-reload-all))
 
-(use-package yasnippet-snippets                                ;; yasnippet-snippets
+;; yasnippet-snippets
+(use-package yasnippet-snippets
   :defer t
   :after yasnippet)
