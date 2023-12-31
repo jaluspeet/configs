@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
-plugins=(git direnv)
+plugins=(git direnv fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -15,8 +15,6 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 # alias
 alias vim='nvim'
-alias cdp='cd ~/Projects/ && ls -la'
-alias cdn='cd ~/Notes/ && ls -la'
 alias lss='ls -la'
 alias icat='kitten icat'
 
@@ -28,4 +26,7 @@ function Resume {
    zle accept-line
  }
  zle -N Resume
- bindkey "^Z" Resume
+
+# bindings
+bindkey "^Z" Resume
+bindkey "©" fzf-cd-widget
