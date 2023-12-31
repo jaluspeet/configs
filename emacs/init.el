@@ -17,13 +17,13 @@
 (add-hook 'prog-mode-hook #'flymake-mode)
 
 ;; KEYBINDINGS
-(keymap-global-set "C-c t" 'shell-pop)
+(keymap-global-set "C-c t" 'term)
 (keymap-global-set "C-c c" 'compile)
 
 ;; SETTINGS
 (load-theme 'modus-vivendi t)                                   ;; Load theme
-(set-face-attribute 'default nil :font "Iosevka 17")            ;; Default font face
-(set-face-attribute 'variable-pitch nil :font "Arial 19")       ;; Variable pitch font
+(set-face-attribute 'default nil :font "Iosevka 20")            ;; Default font face
+(set-face-attribute 'variable-pitch nil :font "Arial 18")       ;; Variable pitch font
 (tool-bar-mode -1)                                              ;; Disable the tool bar
 (scroll-bar-mode -1)                                            ;; Disable the scroll bars
 (setq make-backup-files nil)                                    ;; No backups
@@ -67,9 +67,6 @@
 
 (use-package vertico                                           ;; vertico
   :init (vertico-mode 1))
-
-(use-package shell-pop                                         ;; shell-pop
-  :config (setq shell-pop-window-position "full"))
 
 (use-package evil                                              ;; evil
   :demand t
