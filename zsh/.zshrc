@@ -16,7 +16,8 @@ export PATH=$PATH:$HOME/.cargo/bin
 # alias
 alias vim='nvim'
 alias lss='ls -la'
-alias icat='kitten icat'
+alias kcat='kitten icat'
+alias kssh='kitten ssh'
 
 # functions
 function Resume {
