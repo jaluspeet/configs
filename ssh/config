@@ -1,5 +1,0 @@
-Host minestrina.duckdns.org
-  HostName minestrina.duckdns.org
-  User jalu
-  Port 23
-  ProxyCommand ssh jalu@minestrina.duckdns.org wakethecount
