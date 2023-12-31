@@ -8,6 +8,7 @@ source $ZSH/oh-my-zsh.sh
 export VISUAL='nvim'
 export EDITOR='nvim'
 export LANGUAGE=en_US.UTF-8
+export TERM=xterm-256color
 
 # path
 export PATH=$PATH:$HOME/.local/bin
