@@ -15,7 +15,6 @@
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'eglot-ensure)
 (add-hook 'prog-mode-hook #'flymake-mode)
-(add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)
 
 ;; KEYBINDINGS
 (keymap-global-set "C-c t" 'term)
