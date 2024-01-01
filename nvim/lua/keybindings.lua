@@ -9,7 +9,8 @@ vim.keymap.set('n', '<leader>s', ':Telescope live_grep<CR>', { desc = "Search" }
 vim.keymap.set('n', '<leader>p', ':Telescope projects<CR>', { desc = "Projects" })
 vim.keymap.set('n', '<leader>e', ':Lex<CR><CR>', { desc = "Explorer" })
 
-vim.keymap.set('n', '<C-c>', ':AsyncRun ', { desc = "Run" })
+vim.keymap.set('n', '<C-c>', ':make ', { desc = "Make" })
+vim.keymap.set('n', '<C-t>', ':term ', { desc = "Terminal" })
 
 vim.keymap.set('n', '<leader>d', ':Telescope diagnostics<CR>', { desc = "Diagnostics" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Next Diagnostic" })

@@ -25,6 +25,3 @@ vim.o.pumheight = 10
 vim.opt.showmode = false
 vim.o.cursorline = true
 vim.o.fillchars = "eob: "
-vim.g.asyncrun_open = 8
-vim.g.asyncrun_save = 2
-vim.g.asyncrun_mode = 'term'

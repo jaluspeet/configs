@@ -109,8 +109,6 @@ require('packer').startup(function(use)
                 require('indent-o-matic').setup {}
         end }
 
-        use { 'skywind3000/asyncrun.vim' }
-
         use { 'direnv/direnv.vim' }
 
         use { 'numToStr/Comment.nvim', config = function()
