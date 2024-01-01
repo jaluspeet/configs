@@ -23,8 +23,8 @@
 
 ;; SETTINGS
 (load-theme 'modus-vivendi t)                                   ;; Load theme
-(set-face-attribute 'default nil :font "Iosevka 16")            ;; Default font face
-(set-face-attribute 'variable-pitch nil :font "Arial 14")       ;; Variable pitch font
+(set-face-attribute 'default nil :font "Iosevka 18")            ;; Default font face
+(set-face-attribute 'variable-pitch nil :font "Arial 16")       ;; Variable pitch font
 (tool-bar-mode -1)                                              ;; Disable the tool bar
 (scroll-bar-mode -1)                                            ;; Disable the scroll bars
 (setq make-backup-files nil)                                    ;; No backups
@@ -45,10 +45,7 @@
 
 ;;; LANGUAGES
 (use-package csharp-mode)                                      ;; C#
-(use-package go-mode)                                          ;; Go
 (use-package json-mode)                                        ;; JSON
-(use-package kotlin-mode)                                      ;; Kotlin
-(use-package lua-mode)                                         ;; Lua
 (use-package nasm-mode)                                        ;; NASM
 (use-package rust-mode)                                        ;; Rust
 (use-package yaml-mode)                                        ;; YAML
@@ -93,14 +90,8 @@
   :demand t
   :custom
   (corfu-auto t)
-  :config
-  (set-face-attribute 'modus-themes-fixed-pitch nil :font "Iosevka 16")
-  (set-face-attribute 'eldoc-box-body nil :font "Arial 14")
   :init
   (global-corfu-mode))
-
-;; eldoc-box
-(use-package eldoc-box)
 
 ;; yasnippet
 (use-package yasnippet
