@@ -31,11 +31,9 @@ nnoremap <leader>q :q!<CR>
 nnoremap <leader>, :b#<CR>
 nnoremap <leader>. :bnext<CR>
 nnoremap <leader>e :Lex<CR><CR>
-nnoremap <F5> :silent make \| copen<CR>
 
-nnoremap <leader>d :copen<CR>
-nnoremap ]d :cn<CR>
-nnoremap [d :cp<CR>
+map <C-c> :make 
+map <C-t> :term 
 
 nnoremap <C-h> <C-W><C-H>
 nnoremap <C-j> <C-W><C-J>
