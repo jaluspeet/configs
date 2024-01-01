@@ -1,12 +1,5 @@
 -- makeprg
-if vim.fn.filereadable(vim.fn.getcwd() .. "/Makefile") == 1 then
-	vim.cmd([[setlocal makeprg=make]])
-else
-	vim.cmd([[setlocal makeprg=PYTHONPATH=$(pwd)\ python3\ %]])
-end
+vim.cmd([[setlocal makeprg=PYTHONPATH=$(pwd)\ python3\ %]])
 
 -- errorformat
-vim.cmd([[setlocal errorformat=
-\%*\\sFile\ \"%f\"\\,\ line\ %l\\,\ %m,
-\%*\\sFile\ \"%f\"\\,\ line\ %l,
-]])
+vim.cmd([[setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m]])
