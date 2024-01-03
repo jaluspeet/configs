@@ -24,6 +24,15 @@ set title
 set noshowmode
 set cursorline
 
+" PLUGINS
+call plug#begin()
+
+Plug 'tpope/vim-commentary'
+Plug 'direnv/direnv.vim'
+Plug 'ycm-core/YouCompleteMe'
+
+call plug#end()
+
 " KEYBINDS
 let g:mapleader = ' '
 
@@ -31,9 +40,8 @@ nnoremap <leader>q :q!<CR>
 nnoremap <leader>, :b#<CR>
 nnoremap <leader>. :bnext<CR>
 nnoremap <leader>e :Lex<CR><CR>
-
-map <C-c> :make 
-map <C-t> :term 
+nnoremap <leader>c :make 
+nnoremap <leader>t :term 
 
 nnoremap <C-h> <C-W><C-H>
 nnoremap <C-j> <C-W><C-J>
