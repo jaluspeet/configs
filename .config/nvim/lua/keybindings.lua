@@ -9,12 +9,13 @@ vim.keymap.set('n', '<leader>s', ':Telescope live_grep<CR>', { desc = "Search" }
 vim.keymap.set('n', '<leader>p', ':Telescope projects<CR>', { desc = "Projects" })
 vim.keymap.set('n', '<leader>e', ':Lex<CR><CR>', { desc = "Explorer" })
 vim.keymap.set('n', '<leader>c', ':make ', { desc = "Make" })
-vim.keymap.set('n', '<leader>t', ':term ', { desc = "Terminal" })
+vim.keymap.set('n', '<leader>t', ':20new | term<CR>', { desc = "Terminal" })
+
 vim.keymap.set('n', '<leader>d', ':Telescope diagnostics<CR>', { desc = "Diagnostics" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
-vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename" })
 
+vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Hover" })
 vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { desc = "Signature help" })
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Declaration" })

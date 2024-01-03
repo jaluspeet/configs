@@ -82,6 +82,18 @@ require('packer').startup(function(use)
                 }
         end }
 
+
+        use { 'nvim-lualine/lualine.nvim', config = function()
+                require('lualine').setup {
+                        options = {
+                                icons_enabled = false,
+                                theme = 'modus-vivendi',
+                                section_separators = '',
+                                component_separators = ''
+                        },
+                }
+        end }
+
         use { 'lewis6991/gitsigns.nvim', config = function()
                 require('gitsigns').setup()
         end }
