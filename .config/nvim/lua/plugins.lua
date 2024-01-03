@@ -120,6 +120,10 @@ require('packer').startup(function(use)
                 require('indent-o-matic').setup {}
         end }
 
+        use { 'RaafatTurki/hex.nvim', config = function()
+                require('hex').setup()
+        end }
+
         use { 'direnv/direnv.vim' }
 
         use { 'numToStr/Comment.nvim', config = function()
