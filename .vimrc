@@ -24,17 +24,6 @@ set title
 set noshowmode
 set cursorline
 
-" PLUGINS
-call plug#begin()
-
-Plug 'tpope/vim-commentary'
-Plug 'direnv/direnv.vim'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-
-call plug#end()
-
 " KEYBINDS
 let g:mapleader = ' '
 
