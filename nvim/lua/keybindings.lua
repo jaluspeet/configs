@@ -21,7 +21,7 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Declaration" })
 vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>', { desc = "Definition" })
 vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>', { desc = "Implementation" })
 vim.keymap.set('n', 'gt', ':Telescope lsp_type_definitions<CR>', { desc = "Type definition" })
-vim.keymap.set('n', 'gr', ':TroubleToggle lsp_references<CR>', { desc = "References" })
+vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>', { desc = "References" })
 vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, { desc = "Action" })
 
 vim.keymap.set('n', '<C-h>', '<C-W><C-H>')
