@@ -40,7 +40,6 @@ require('packer').startup(function(use)
                 config = function()
                         require('lsp-zero').preset().nvim_workspace()
                         require('lsp-zero').preset().ensure_installed { 'lua_ls', 'clangd', 'pyright' }
-                        require('lspconfig').lua_ls.setup(require('lsp-zero').nvim_lua_ls())
                         require('lsp-zero').preset().set_sign_icons {
                                 error = 'x',
                                 warn = '!',
