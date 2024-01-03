@@ -29,7 +29,9 @@ call plug#begin()
 
 Plug 'tpope/vim-commentary'
 Plug 'direnv/direnv.vim'
-Plug 'ycm-core/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 
 call plug#end()
 
