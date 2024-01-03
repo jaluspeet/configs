@@ -15,7 +15,7 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
 
 # alias
-alias nv='nvim'
+alias vim='nvim'
 alias lss='ls -la'
 alias kcat='kitten icat'
 alias kssh='kitten ssh'
