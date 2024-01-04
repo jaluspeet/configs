@@ -1,3 +1,5 @@
 deploy.sh
 .git
 .gitignore
+
+.config/alacritty

@@ -41,10 +41,15 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
 mode "resize" {
-        bindsym l resize grow width 10 px or 10 ppt
-        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize shrink width 10 px or 10 ppt
+
+        bindsym Left resize grow width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize shrink width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -78,11 +83,21 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+bindsym $mod+Left left
+bindsym $mod+Down down
+bindsym $mod+Up up
+bindsym $mod+Right right
+
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left left
+bindsym $mod+Shift+Down down
+bindsym $mod+Shift+Up up
+bindsym $mod+Shift+Right right
 
 # split in horizontal orientation
 bindsym $mod+c split h
@@ -120,7 +135,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # screenshot
 bindsym Print exec --no-startup-id scrot ~/Pictures/%Y-%m-%d-%T.png && notify-send "Screenshot saved to ~/Pictures"
-bindsym $mod+Print exec --no-startup-id flameshot gui
+bindsym --release $mod+Print exec --no-startup-id scrot -s -e 'xclip -selection clipboard -t image/png -i $f' && notify-send "Screenshot copied to clipboard"
 
 # zoom
 bindsym $mod+z exec --no-startup-id boomer
@@ -148,10 +163,13 @@ client.urgent		    	#ff0000	#ff0000	#ffffff	#000000 #000000
 
 # statusbar
 bar {
-	status_command while date +'%d/%m/%y %H:%M'; do sleep 10; done
-	position bottom
+	# status_command while date +'%d/%m/%y %H:%M'; do sleep 10; done
+        status_command i3status
+        separator_symbol " | "
+	
+        position bottom
 	colors {
-		separator          #000000
+		separator          #ffffff
 		background         #000000
 		statusline         #ffffff
 
