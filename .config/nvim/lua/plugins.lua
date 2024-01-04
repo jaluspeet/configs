@@ -126,6 +126,20 @@ require('packer').startup(function(use)
                 require('gitsigns').setup()
         end }
 
+        -- better terminal
+        use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+                require("toggleterm").setup {
+                        start_insert = true,
+                        shade_terminals = false,
+                        size = function(term)
+                                if term.direction == "horizontal" then
+                                        return 10
+                                elseif term.direction == "vertical" then
+                                        return vim.o.columns * 0.5
+                                end
+                        end }
+        end }
+
         -- xxd integration
         use { 'RaafatTurki/hex.nvim', config = function()
                 require('hex').setup()
