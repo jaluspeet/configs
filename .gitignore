@@ -1,9 +1,2 @@
 .DS_Store
-
-# nvim
 .config/nvim/plugin
-
-# emacs
-.emacs.d/*
-!.emacs.d/init.el
-

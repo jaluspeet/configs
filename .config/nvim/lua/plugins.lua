@@ -96,12 +96,6 @@ require('packer').startup(function(use)
                 }
         end }
 
-        -- git
-        use { 'tpope/vim-fugitive' }
-        use { 'lewis6991/gitsigns.nvim', config = function()
-                require('gitsigns').setup()
-        end }
-
         -- better syntax highlight
         use { 'nvim-treesitter/nvim-treesitter', config = function()
                 require('nvim-treesitter.configs').setup {
@@ -126,6 +120,12 @@ require('packer').startup(function(use)
                 require('indent-o-matic').setup {}
         end }
 
+        -- git
+        use { "sindrets/diffview.nvim" }
+        use { 'lewis6991/gitsigns.nvim', config = function()
+                require('gitsigns').setup()
+        end }
+
         -- xxd integration
         use { 'RaafatTurki/hex.nvim', config = function()
                 require('hex').setup()
@@ -134,7 +134,7 @@ require('packer').startup(function(use)
         -- source .envrc files
         use { 'direnv/direnv.vim' }
 
-        -- comments toggle (gc / gcc)
+        -- comments (gc / gcc)
         use { 'numToStr/Comment.nvim', config = function()
                 require('Comment').setup()
         end }

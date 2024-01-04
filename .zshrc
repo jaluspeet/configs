@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
-plugins=(git direnv fzf zsh-autosuggestions)
+plugins=(git direnv zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 

@@ -1,31 +1,34 @@
 vim.g.mapleader = ' '
 
-vim.keymap.set('n', '<leader>q', ':q!<CR>', { desc = "Quit" })
-vim.keymap.set('n', '<leader>,', ':b#<CR>', { desc = "Prev buffer" })
-vim.keymap.set('n', '<leader>.', ':bNext<CR>', { desc = "Next buffer" })
-
 vim.keymap.set('n', '<leader><leader>', ':Telescope find_files<CR>', { desc = "Files" })
 vim.keymap.set('n', '<leader>s', ':Telescope live_grep<CR>', { desc = "Search" })
 vim.keymap.set('n', '<leader>p', ':Telescope projects<CR>', { desc = "Projects" })
 vim.keymap.set('n', '<leader>f', ':Lex<CR><CR>', { desc = "Explorer" })
 vim.keymap.set('n', '<leader>c', ':make ', { desc = "Make" })
 vim.keymap.set('n', '<leader>t', ':20new | term<CR>', { desc = "Terminal" })
+vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename" })
+vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, { desc = "Action" })
 
+-- errors
 vim.api.nvim_set_keymap('n', '<leader>e', ':lua vim.diagnostic.setloclist()<CR>', { desc = 'Diagnostics' })
 vim.api.nvim_set_keymap('n', 'E', ':lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'ge', ':lua vim.diagnostic.goto_prev()<CR>', { desc = 'Prev diagnostic' })
 vim.api.nvim_set_keymap('n', 'gE', ':lua vim.diagnostic.goto_next()<CR>', { desc = 'Next diagnostic' })
 
-vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename" })
+-- lsp stuff
+vim.keymap.set('n', '<leader>d', ':Telescope lsp_dynamic_workspace_symbols<CR>', { desc = "Symbols" })
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Hover" })
-vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { desc = "Signature help" })
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Declaration" })
 vim.keymap.set('n', 'gd', ':Telescope lsp_definitions<CR>', { desc = "Definition" })
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Declaration" })
+vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, { desc = "Signature help" })
 vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>', { desc = "Implementation" })
 vim.keymap.set('n', 'gt', ':Telescope lsp_type_definitions<CR>', { desc = "Type definition" })
 vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>', { desc = "References" })
-vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, { desc = "Action" })
 
+-- move around
+vim.keymap.set('n', '<leader>q', ':q!<CR>', { desc = "Quit" })
+vim.keymap.set('n', '<leader>,', ':b#<CR>', { desc = "Prev buffer" })
+vim.keymap.set('n', '<leader>.', ':bNext<CR>', { desc = "Next buffer" })
 vim.keymap.set('n', '<C-h>', '<C-W><C-H>')
 vim.keymap.set('n', '<C-j>', '<C-W><C-J>')
 vim.keymap.set('n', '<C-k>', '<C-W><C-K>')

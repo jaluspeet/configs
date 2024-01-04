@@ -1,16 +1,15 @@
 [user]
 	name = jaluspeet
 	email = 39632922+jaluspeet@users.noreply.github.com
+[merge]
+	tool = nvim
+[mergetool "nvim"]
+	cmd = nvim -f +DiffviewOpen
+[mergetool]
+	 prompt = false
+[diff]
+	tool = nvim
+[difftool "nvim"]
+	cmd = nvim -f +DiffviewOpen
 [difftool]
 	prompt = false
-[diff]
-	tool = nvimdiff
-[difftool "nvimdiff"]
-	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
-[core]
-	autocrlf = input
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
