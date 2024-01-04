@@ -20,6 +20,7 @@ require('packer').startup(function(use)
 
         -- plugins under this
 
+        -- LSP auto setup and all the boogaloo
         use {
                 'VonHeikemen/lsp-zero.nvim',
                 branch = 'v2.x',
@@ -76,13 +77,14 @@ require('packer').startup(function(use)
                         require('lsp-zero').preset().setup()
                 end }
 
+        -- project detection
         use { "ahmedkhalf/project.nvim", config = function()
                 require("project_nvim").setup {
                         require('telescope').load_extension('projects')
                 }
         end }
 
-
+        -- statusline
         use { 'nvim-lualine/lualine.nvim', config = function()
                 require('lualine').setup {
                         options = {
@@ -94,10 +96,13 @@ require('packer').startup(function(use)
                 }
         end }
 
+        -- git
+        use { 'tpope/vim-fugitive' }
         use { 'lewis6991/gitsigns.nvim', config = function()
                 require('gitsigns').setup()
         end }
 
+        -- better syntax highlight
         use { 'nvim-treesitter/nvim-treesitter', config = function()
                 require('nvim-treesitter.configs').setup {
                         auto_install = true,
@@ -116,20 +121,25 @@ require('packer').startup(function(use)
                 }
         end }
 
+        -- auto indentation
         use { 'Darazaki/indent-o-matic', config = function()
                 require('indent-o-matic').setup {}
         end }
 
+        -- xxd integration
         use { 'RaafatTurki/hex.nvim', config = function()
                 require('hex').setup()
         end }
 
+        -- source .envrc files
         use { 'direnv/direnv.vim' }
 
+        -- comments toggle (gc / gcc)
         use { 'numToStr/Comment.nvim', config = function()
                 require('Comment').setup()
         end }
 
+        -- search stuff
         use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = function()
                 require('telescope').setup {
                         defaults = require('telescope.themes').get_ivy({})

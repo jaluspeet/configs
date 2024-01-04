@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
-plugins=(git direnv fzf)
+plugins=(git direnv fzf zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -31,4 +31,3 @@ function Resume {
 
 # bindings
 bindkey "^Z" Resume
-bindkey "©" fzf-cd-widget
