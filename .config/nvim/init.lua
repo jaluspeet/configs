@@ -1,5 +1,6 @@
 require("plugins")
 require("settings")
-require("colo")
+require("functions")
+require("colors")
 require("keybindings")
 require("autocmd")

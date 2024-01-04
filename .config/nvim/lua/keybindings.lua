@@ -9,6 +9,8 @@ vim.keymap.set('n', '<leader>f', ':Lex<CR><CR>', { desc = "Explorer" })
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, { desc = "Action" })
 vim.keymap.set('n', '<leader>c', ':make ', { desc = "Make" })
+vim.keymap.set({ 'n', 'i', 't' }, '<C-s>', ':Run', { desc = 'Run command' })
+
 
 -- lsp
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Hover" })
@@ -44,15 +46,3 @@ vim.keymap.set('t', '<C-h>', '<C-\\><C-N><C-W><C-H>', { desc = 'Go left' })
 vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-W><C-J>', { desc = 'Go down' })
 vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-W><C-K>', { desc = 'Go up' })
 vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-W><C-L>', { desc = 'Go right' })
-
-
--- functions
--- Run a command in terminal, if no arguments run the last one
-function Run(opts)
-    if opts.args and opts.args ~= '' then
-        vim.api.nvim_set_var('last_command', opts.args)
-    end
-    require('toggleterm').exec(vim.api.nvim_get_var('last_command'), 1, 12)
-end
-vim.api.nvim_create_user_command('Run', Run, { nargs = '?' })
-vim.keymap.set({ 'n', 'i', 't' }, '<C-s>', ':Run', { desc = 'Run last command' })
