@@ -131,6 +131,8 @@ require('packer').startup(function(use)
                 require("toggleterm").setup {
                         start_insert = true,
                         shade_terminals = false,
+                        direction = 'tab',
+                        open_mapping = [[<c-a>]],
                         size = function(term)
                                 if term.direction == "horizontal" then
                                         return 10
