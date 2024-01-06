@@ -1,182 +1,204 @@
+# SETTINGS
 set $mod Mod4
-font pango:Terminus 11
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id feh --bg-fill /home/jalu/Pictures/cows.jpg	
+font                                                   pango:Terminus 11
+exec --no-startup-id                                   xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id                                   feh --bg-fill /home/jalu/Pictures/cows.jpg	
+workspace_layout                                       default
+title_align                                            left
+floating_modifier                                      $mod
 
-# default i3 tiling mode:
-workspace_layout default
+# window colors
+# class                                                 border	        bground	        text	        indic.          child_border
+client.focused                                          #000000         #000000         #ffffff         #000000         #000000
+client.unfocused                                        #000000	        #000000	        #ffffff	        #000000         #000000
+client.focused_inactive                                 #000000	        #000000	        #ffffff	        #000000         #000000
+client.urgent                                           #ff0000	        #ff0000	        #ffffff	        #000000         #000000
 
-# window title alignment
-title_align left
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
 
+# LAYOUT
 # switch/iterate between workspaces
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Tab                                       workspace next
+bindsym $mod+Shift+Tab                                 workspace prev
 
 # switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
+bindsym $mod+1                                         workspace number 1
+bindsym $mod+2                                         workspace number 2
+bindsym $mod+3                                         workspace number 3
+bindsym $mod+4                                         workspace number 4
+bindsym $mod+5                                         workspace number 5
+bindsym $mod+6                                         workspace number 6
+bindsym $mod+7                                         workspace number 7
+bindsym $mod+8                                         workspace number 8
+bindsym $mod+9                                         workspace number 9
+bindsym $mod+0                                         workspace number 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+1                                   move container to workspace number 1
+bindsym $mod+Shift+2                                   move container to workspace number 2
+bindsym $mod+Shift+3                                   move container to workspace number 3
+bindsym $mod+Shift+4                                   move container to workspace number 4
+bindsym $mod+Shift+5                                   move container to workspace number 5
+bindsym $mod+Shift+6                                   move container to workspace number 6
+bindsym $mod+Shift+7                                   move container to workspace number 7
+bindsym $mod+Shift+8                                   move container to workspace number 8
+bindsym $mod+Shift+9                                   move container to workspace number 9
+bindsym $mod+Shift+0                                   move container to workspace number 10
 
+# change focus
+bindsym $mod+h                                         focus left
+bindsym $mod+j                                         focus down
+bindsym $mod+k                                         focus up
+bindsym $mod+l                                         focus right
+
+bindsym $mod+Left                                      left
+bindsym $mod+Down                                      down
+bindsym $mod+Up                                        up
+bindsym $mod+Right                                     right
+
+# move focused window
+bindsym $mod+Shift+h                                   move left
+bindsym $mod+Shift+j                                   move down
+bindsym $mod+Shift+k                                   move up
+bindsym $mod+Shift+l                                   move right
+
+bindsym $mod+Shift+Left                                left
+bindsym $mod+Shift+Down                                down
+bindsym $mod+Shift+Up                                  up
+bindsym $mod+Shift+Right                               right
+
+# split in horizontal orientation
+bindsym $mod+c                                         split h
+
+# split in vertical orientation
+bindsym $mod+v                                         split v
+
+# enter fullscreen mode for the focused container
+bindsym F11                                            fullscreen toggle
+
+# change container layout
+bindsym $mod+s                                         layout stacking
+bindsym $mod+g                                         layout tabbed
+bindsym $mod+e                                         layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space                                floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+f                                          focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a                                          focus parent
+
+
+
+# MODES
+# power
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (p) poweroff
+
+mode "$mode_system" {
+        bindsym l exec --no-startup-id                 i3lock, mode "default"
+        bindsym e exec --no-startup-id                 i3-msg exit, mode "default" 
+        bindsym s exec --no-startup-id                 systemctl suspend, mode "default"
+        bindsym r exec --no-startup-id                 systemctl reboot, mode "default"
+        bindsym p exec --no-startup-id                 systemctl poweroff, mode "default"
+        bindsym Return                                 mode "default"     
+        bindsym Escape                                 mode "default"  
+}
+
+bindsym $mod+Shift+e mode "$mode_system"
+
+# resize
 mode "resize" {
-        bindsym h resize grow width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym h                                      resize grow width 10 px or 10 ppt
+        bindsym j                                      resize grow height 10 px or 10 ppt
+        bindsym k                                      resize shrink height 10 px or 10 ppt
+        bindsym l                                      resize shrink width 10 px or 10 ppt
 
-        bindsym Left resize grow width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize shrink width 10 px or 10 ppt
+        bindsym Left                                   resize grow width 10 px or 10 ppt
+        bindsym Down                                   resize grow height 10 px or 10 ppt
+        bindsym Up                                     resize shrink height 10 px or 10 ppt
+        bindsym Right                                  resize shrink width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym Return                                 mode "default"
+        bindsym Escape                                 mode "default"
+        bindsym $mod+r                                 mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-# start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+
+
+# SHORTCUTS
+# terminal
+bindsym $mod+Return exec --no-startup-id               i3-sensible-terminal
 
 # application menu
-bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+space exec --no-startup-id                i3-dmenu-desktop
 
 # kill focused window
-bindsym $mod+q kill
-
-# exit-menu
-bindsym $mod+Shift+e exit
+bindsym $mod+q                                         kill
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c                                   reload
 
 # restart i3
-bindsym $mod+Shift+r restart
-
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-bindsym $mod+Left left
-bindsym $mod+Down down
-bindsym $mod+Up up
-bindsym $mod+Right right
-
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-bindsym $mod+Shift+Left left
-bindsym $mod+Shift+Down down
-bindsym $mod+Shift+Up up
-bindsym $mod+Shift+Right right
-
-# split in horizontal orientation
-bindsym $mod+c split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym F11 fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+g layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+f focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+Shift+r                                   restart
 
 # volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 10%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 10%-
-bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle
-bindsym XF86AudioMicMute exec --no-startup-id amixer sset Capture toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id       amixer sset Master 10%+
+bindsym XF86AudioLowerVolume exec --no-startup-id       amixer sset Master 10%-
+bindsym XF86AudioMute exec --no-startup-id              amixer sset Master toggle
+bindsym XF86AudioMicMute exec --no-startup-id           amixer sset Capture toggle
 
 # playback control
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id              playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id              playerctl next
+bindsym XF86AudioPrev exec --no-startup-id              playerctl previous
 
 # screenshot
-bindsym Print exec --no-startup-id scrot ~/Pictures/%Y-%m-%d-%T.png && notify-send "Screenshot saved to ~/Pictures"
-bindsym --release $mod+Print exec --no-startup-id scrot -s -e 'xclip -selection clipboard -t image/png -i $f' && notify-send "Screenshot copied to clipboard"
+bindsym Print exec --no-startup-id                      scrot ~/Pictures/%Y-%m-%d-%T.png && notify-send "Screenshot saved to ~/Pictures"
+bindsym --release $mod+Print exec --no-startup-id       scrot -s -e 'xclip -selection clipboard -t image/png -i $f' && notify-send "Screenshot copied to clipboard"
 
 # zoom
-bindsym $mod+z exec --no-startup-id boomer
+bindsym $mod+z exec --no-startup-id                     boomer
 
-# autostart applications/services on login: 
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id eval $(gnome-keyring-daemon --start)
-exec --no-startup-id export SSH_AUTH_SOCK
-exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
-exec --no-startup-id udiskie
-exec --no-startup-id xcompmgr
 
-# set floating (nontiling) for apps some apps
-for_window [class="Calculator" instance="galculator"] floating enable
-for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
-for_window [window_role="About"] floating enable
 
-# define colors for windows:
-#class		        	border	bground	text	indic.  child_border
-client.focused		    	#000000	#000000	#ffffff	#000000 #000000
-client.unfocused	    	#000000	#000000	#ffffff	#000000 #000000
-client.focused_inactive		#000000	#000000	#ffffff	#000000 #000000
-client.urgent		    	#ff0000	#ff0000	#ffffff	#000000 #000000
+# AUTOSTART 
+exec --no-startup-id                                    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id                                    eval $(gnome-keyring-daemon --start)
+exec --no-startup-id                                    export SSH_AUTH_SOCK
+exec --no-startup-id                                    nm-applet
+exec --no-startup-id                                    volumeicon
+exec --no-startup-id                                    udiskie
+exec --no-startup-id                                    xcompmgr
 
-# statusbar
+
+
+# EXCEPTIONS
+for_window                                              [class="Calculator" instance="galculator"] floating enable
+for_window                                              [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window                                              [window_role="About"] floating enable
+
+
+
+# STATUS
 bar {
-	# status_command while date +'%d/%m/%y %H:%M'; do sleep 10; done
+        # status_command while date +'%d/%m/%y %H:%M'; do sleep 10; done
         status_command i3status
         separator_symbol " | "
-	
         position bottom
 	colors {
-		separator          #ffffff
-		background         #000000
-		statusline         #ffffff
+                        # class                         color
+                        separator                       #ffffff
+                        background                      #000000
+                        statusline                      #ffffff
 
-					# border	bg		txt
-		focused_workspace	#000000	   	#000000		#ffffff
-		active_workspace	#000000     	#000000		#888888
-		inactive_workspace	#000000   	#000000		#666666
-		urgent_workspace	#ff0000	    	#ff0000		#ffffff
+                        # class                         border          bg		txt
+                        focused_workspace               #000000	   	#000000		#ffffff
+                        active_workspace                #000000     	#000000		#888888
+                        inactive_workspace              #000000   	#000000		#666666
+                        urgent_workspace                #ff0000	    	#ff0000		#ffffff
 	}
 }
