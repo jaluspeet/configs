@@ -93,9 +93,16 @@ bindsym $mod+a                                          focus parent
 
 
 # MODES
-# power
-set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (p) poweroff
+# display
+set $mode_display DISPLAY (D) day, (N) night 
+mode "$mode_display" {
+        bindsym d exec --no-startup-id                 sct 6500, mode "default"
+        bindsym n exec --no-startup-id                 sct 3000, mode "default"
+}
+bindsym $mod+Shift+d mode "$mode_display"
 
+# power
+set $mode_system SYSTEM (L) lock, (E) logout, (S) suspend, (R) reboot, (P) poweroff
 mode "$mode_system" {
         bindsym l exec --no-startup-id                 i3lock, mode "default"
         bindsym e exec --no-startup-id                 i3-msg exit, mode "default" 
@@ -105,11 +112,10 @@ mode "$mode_system" {
         bindsym Return                                 mode "default"     
         bindsym Escape                                 mode "default"  
 }
-
 bindsym $mod+Shift+e mode "$mode_system"
 
 # resize
-mode "resize" {
+mode "RESIZE" {
         bindsym h                                      resize grow width 10 px or 10 ppt
         bindsym j                                      resize grow height 10 px or 10 ppt
         bindsym k                                      resize shrink height 10 px or 10 ppt
@@ -125,7 +131,7 @@ mode "resize" {
         bindsym $mod+r                                 mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "RESIZE"
 
 
 
