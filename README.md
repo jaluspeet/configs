@@ -1,5 +1,5 @@
 If you want to be as cool as me: with `stow` installed, just do `./deploy.sh`.
-It will symlink every config file in here to where it belongs (in your home directory).
+It will symlink every config file in here to where it belongs (in your home directory). Of course, you can also just copy the files you want manually.
 
 ## note
 `Alacritty` doesn't get symlinked and if you want also that you should copy `.config/alacritty/alacritty.toml` manually to the same path in your home. 
