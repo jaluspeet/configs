@@ -105,7 +105,7 @@ set $mode_display DISPLAY (D) day, (N) night
 }
 bindsym $mod+Shift+d                                   mode "$mode_display"
 
-set $mode_system SYSTEM (L) lock, (E) logout, (S) suspend, (R) reboot, (P) poweroff
+set $mode_system SYSTEM (L) lock, (E) exit, (S) suspend, (R) reboot, (P) poweroff
 mode "$mode_system" {
        bindsym l exec --no-startup-id                  i3lock, mode "default"
        bindsym e exec --no-startup-id                  i3-msg exit, mode "default" 
