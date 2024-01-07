@@ -8,10 +8,10 @@ title_align                                            left
 floating_modifier                                      $mod
 
 # window element                                       border	        bground	        text	        indic.          child_border
-client.focused                                         #000000         #000000         #ffffff         #000000         #000000
-client.unfocused                                       #000000	        #000000	        #ffffff	        #000000         #000000
-client.focused_inactive                                #000000	        #000000	        #ffffff	        #000000         #000000
-client.urgent                                          #ff0000	        #ff0000	        #ffffff	        #000000         #000000
+client.focused                                         #000000          #000000         #ffffff         #000000         #000000
+client.unfocused                                       #000000	        #000000	        #666666	        #000000         #000000
+client.focused_inactive                                #000000	        #000000	        #666666	        #000000         #000000
+client.urgent                                          #000000	        #000000	        #ff0000	        #000000         #000000
 
 
 
@@ -79,7 +79,7 @@ bindsym F11                                            fullscreen toggle
 bindsym $mod+Shift+space                               floating toggle
 
 bindsym $mod+s                                         layout stacking
-bindsym $mod+g                                         layout tabbed
+bindsym $mod+w                                         layout tabbed
 bindsym $mod+e                                         layout toggle split
 
 bindsym $mod+f                                         focus mode_toggle
@@ -170,10 +170,10 @@ bar {
                 background                             #000000
                 statusline                             #ffffff
 
-                # class                                border          bg		txt
+                # class                                border           bg		txt
                 focused_workspace                      #000000	   	#000000		#ffffff
                 active_workspace                       #000000     	#000000		#888888
                 inactive_workspace                     #000000   	#000000		#666666
-                urgent_workspace                       #ff0000	    	#ff0000		#ffffff
+                urgent_workspace                       #000000	    	#000000		#ff0000
         }
 }
