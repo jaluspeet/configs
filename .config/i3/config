@@ -22,7 +22,6 @@ exec --no-startup-id                                   export SSH_AUTH_SOCK
 exec --no-startup-id                                   nm-applet
 exec --no-startup-id                                   volumeicon
 exec --no-startup-id                                   udiskie
-exec --no-startup-id                                   xcompmgr
 
 
 
