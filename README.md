@@ -1,4 +1,4 @@
-If you want to be as cool as me: with stow installed, just do `./deploy.sh`.
+If you want to be as cool as me: with `stow` installed, just do `./deploy.sh`.
 It will symlink every config file in here to where it belongs (in your home directory).
 
 ## note
